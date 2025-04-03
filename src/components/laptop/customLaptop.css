@@ -1,0 +1,72 @@
+.customLaptop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #111;
+    perspective: 1200px; /* Adds depth */
+}
+
+.laptop {
+    position: relative;
+    width: 250px;
+    height: 160px;
+    transform-style: preserve-3d;
+}
+
+/* Laptop Base */
+.lBase {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: black;
+    border-radius: 5px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Apple Logo */
+.appleLogo {
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 
+                 0 0 20px rgba(255, 255, 255, 0.7), 
+                 0 0 30px rgba(255, 255, 255, 0.5);
+    animation: glow 2s infinite alternate;
+}
+
+/* Glowing Apple Effect */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 
+                     0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 1), 
+                     0 0 30px rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Laptop Screen */
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, #3b82f6, #1e3a8a);
+    border-radius: 5px;
+    top: -120px;
+    transform-origin: bottom;
+    transition: transform 1s ease-in-out;
+}
+
+/* Closed Screen */
+.screen.closed {
+    transform: rotateX(90deg); /* Start folded */
+}
+
+/* Opened Screen */
+.screen.open {
+    transform: rotateX(0deg); /* Fully opened */
+}
